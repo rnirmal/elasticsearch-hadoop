@@ -151,6 +151,7 @@ private[sql] case class ElasticsearchRelation(parameters: Map[String, String], @
   }
 
   // introduced in Spark 1.6
+  /*
   override def unhandledFilters(filters: Array[Filter]): Array[Filter] = {
     if (Utils.isKeepHandledFilters(cfg) || filters == null || filters.size == 0)
       return filters;
@@ -189,6 +190,7 @@ private[sql] case class ElasticsearchRelation(parameters: Map[String, String], @
     }
     filtered
   }
+*/
 
   private def createDSLFromFilters(filters: Array[Filter], strictPushDown: Boolean) = {
     filters.map(filter => translateFilter(filter, strictPushDown)).filter(query => StringUtils.hasText(query))
